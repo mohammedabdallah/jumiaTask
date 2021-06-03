@@ -5,12 +5,12 @@ namespace Jumia\Task\Database;
 use Jumia\Task\Config;
 use PDO;
 
-class Database
+class Connection
 {
     /**
      * Hold databae instance
      *
-     * @var [type]
+     * @var pdo
      */
     private $pdo;
 
@@ -18,12 +18,13 @@ class Database
     {
         if ($this->pdo == null) {
             try {
-                $this->pdo = new PDO("sqlite:". Config::PATH_TO_SQLITE_FILE);
+                $this->pdo = new PDO("sqlite:". Config::PATH_TO_SQLITE_FILE, '', '', [
+                    PDO::ATTR_PERSISTENT=>true
+                ]);
             } catch (\PDOException $e) {
                 die($e->getMessage());
             }
         }
-
         return $this->pdo;
     }
 }

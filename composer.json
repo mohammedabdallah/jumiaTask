@@ -1,7 +1,11 @@
 {
     "autoload": {
         "psr-4": {
-            "Jumia\\Task\\": "src/"
+            "Jumia\\Task\\": "src/",
+            "Tests\\":"tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9"
     }
 }
