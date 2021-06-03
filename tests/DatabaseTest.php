@@ -1,6 +1,7 @@
 <?php
 namespace Tests;
 
+use Error;
 use Jumia\Task\Database\Connection;
 use PHPUnit\Framework\TestCase;
 
