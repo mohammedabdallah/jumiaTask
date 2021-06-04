@@ -22,6 +22,8 @@ class PhonesController
 
     public function listPhones()
     {
-        var_dump($this->phonesService->filterPhones($_GET, $this->customerModel->getCustomers()));
+        $phones = $this->phonesService->filterPhones($_GET, $this->customerModel->getCustomers());
+
+        require ('../views/list-phones.php');
     }
 }
