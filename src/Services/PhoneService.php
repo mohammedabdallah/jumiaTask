@@ -34,7 +34,7 @@ class PhoneService {
 
             $this->phones[$key]['state'] = $this->isValidPhone($this->phones[$key]['phone'], $this->phones[$key]['code']);
         }
-        
+
         return $this->phones;
     }
 
@@ -59,7 +59,7 @@ class PhoneService {
      */
     private function getCountryFromCode(int $code): ?string
     {
-        if(in_array($code, ConstantsHelper::$countries)){
+        if(array_key_exists($code, ConstantsHelper::$countries)){
             return ConstantsHelper::$countries[$code];
         }
 
