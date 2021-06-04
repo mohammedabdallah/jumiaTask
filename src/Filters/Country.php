@@ -7,7 +7,7 @@ class Country implements IFilter
     public function applyFilter(array &$phones, string $filter): void
     {
         foreach ($phones as $key=>$phone) {
-            if ($phones[$key]['country'] != $filter) {
+            if (strtolower($phones[$key]['country']) != strtolower($filter)) {
                 unset($phones[$key]);
             }
         }
