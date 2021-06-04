@@ -84,4 +84,25 @@ class PhonesServiceTest extends TestCase{
 
         $this->assertEquals('NOK', $result);
     }
+
+    /**
+     * @test
+     */
+     public function it_filter_phones_by_country()
+     {
+         $phones = [
+             ['phone' => '(212) 698054317', 'stete' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::MOROCCO_CODE] ],
+             ['phone' => '(258) 847651504', 'stete' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::MOZAMBIQUE_CODE] ],
+             ['phone' => '(256) 775069443', 'stete' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+             ['phone' => '(256) 7503O6263', 'stete' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+             ['phone' => '(256) 704244430', 'stete' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+         ];
+
+         $result = $this->pohneService->filterPhones(['country' => 'UGANDA'], $phones);
+
+         foreach($result as $phone)
+         {
+             $this->assertEquals($phone['country'], ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE]);
+         }
+     }
 }
