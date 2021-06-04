@@ -2,18 +2,10 @@
 
 namespace Tests;
 
-use Jumia\Task\Database\Connection;
 use Jumia\Task\Models\Customer;
 use PHPUnit\Framework\TestCase;
 
 class CustomerModelTest extends TestCase{
-
-    private $pdoConnection;
-
-    public function setUp(): void
-    {
-        $this->pdoConnection = (new Connection)->connect();
-    }
 
     /**
      * @test

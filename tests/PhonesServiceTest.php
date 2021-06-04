@@ -119,9 +119,30 @@ class PhonesServiceTest extends TestCase
         ];
 
         $result = $this->pohneService->filterPhones(['state' => 'NOK'], $phones);
-        
+
         foreach ($result as $phone) {
             $this->assertEquals($phone['state'], 'NOK');
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function it_filter_by_multiple_filters()
+    {
+        $phones = [
+            ['phone' => '(212) 698054317', 'state' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::MOROCCO_CODE] ],
+            ['phone' => '(258) 847651504', 'state' => 'NOK', 'country' => ConstantsHelper::$countries[ConstantsHelper::MOZAMBIQUE_CODE] ],
+            ['phone' => '(256) 775069443', 'state' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+            ['phone' => '(256) 7503O6263', 'state' => 'NOK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+            ['phone' => '(256) 704244430', 'state' => 'OK', 'country' => ConstantsHelper::$countries[ConstantsHelper::UGANDA_CODE] ],
+        ];
+
+        $result = $this->pohneService->filterPhones(['state' => 'NOK', 'country' =>  ConstantsHelper::$countries[ConstantsHelper::MOZAMBIQUE_CODE]], $phones);
+
+        foreach ($result as $phone) {
+            $this->assertEquals($phone['state'], 'NOK');
+            $this->assertEquals($phone['country'], ConstantsHelper::$countries[ConstantsHelper::MOZAMBIQUE_CODE]);
         }
     }
 }
