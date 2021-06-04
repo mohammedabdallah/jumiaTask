@@ -31,7 +31,8 @@ tr:nth-child(even) {
 
 <select>
  <option>Select state</option>
- 
+ <option value="NOK">NOK</option>
+ <option value="OK">OK</option>
 </select>
 <table>
 <tr>
