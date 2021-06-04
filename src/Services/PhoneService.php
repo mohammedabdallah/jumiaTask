@@ -45,6 +45,13 @@ class PhoneService
         return $this->phones;
     }
 
+    /**
+     * filter phones according to filters sent by FE
+     *
+     * @param array $filters
+     * @param array $phones
+     * @return array
+     */
     public function filterPhones(array $filters, array $phones): array
     {
         foreach ($filters as $key=>$filter) {
@@ -87,6 +94,13 @@ class PhoneService
         return null;
     }
 
+    /**
+     * Check if it's valid phone using regex
+     *
+     * @param string $phone
+     * @param integer $code
+     * @return string
+     */
     public function isValidPhone(string $phone, int $code): string
     {
         if (preg_match(ConstantsHelper::$countriesRegex[$code], $phone)) {

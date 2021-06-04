@@ -18,7 +18,9 @@
 #### Setup & installation
 * git clone git@github.com:mohammedabdallah/jumiaTask.git
 * cd jumiaTask
+* open Config class and set the full path for sqlite DB
 * composer install
+* ./vendor/bin/phpunit tests/
 * cd public
 * php -S localhost:8000
 

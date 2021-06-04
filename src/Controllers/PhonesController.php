@@ -18,7 +18,12 @@ class PhonesController
         $this->customerModel = new Customer;
     }
 
-    public function listPhones()
+    /**
+     * list phone entry point
+     *
+     * @return void
+     */
+    public function listPhones(): void
     {
         $phones = $this->phonesService->buildPhonesPayload($this->customerModel->getCustomers());
         
