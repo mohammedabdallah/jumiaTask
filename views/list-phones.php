@@ -40,7 +40,7 @@ tr:nth-child(even) {
     <th>Country code</th>
     <th>Phone</th>
   </tr>
-<?php foreach($phones as $phone) { ?>
+<?php foreach($filterdPhones as $phone) { ?>
   <tr>
     <td><?= $phone['country'] ?></td>
     <td><?= $phone['state']  ?></td>

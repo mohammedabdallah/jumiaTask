@@ -20,8 +20,10 @@ class PhonesController
 
     public function listPhones()
     {
-        $phones = $this->phonesService->filterPhones($_GET, $this->customerModel->getCustomers());
-
+        $phones = $this->phonesService->buildPhonesPayload($this->customerModel->getCustomers());
+        
+        $filterdPhones = $this->phonesService->filterPhones($_GET, $phones);
+        
         $countries = ConstantsHelper::$countries;
 
         require('../views/list-phones.php');

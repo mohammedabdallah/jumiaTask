@@ -24,4 +24,9 @@ class ConstantsHelper
         self::UGANDA_CODE => '/\(256\)\ ?\d{9}$/',
         self::ETHIOPIA_CODE => '/\(251\)\ ?[1-59]\d{8}$/',
     ];
+
+    public static $allowedFilters = [
+        'country',
+        'state'
+    ];
 }
