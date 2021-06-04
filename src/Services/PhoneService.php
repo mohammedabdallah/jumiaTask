@@ -11,7 +11,7 @@ class PhoneService {
      *
      * @var array
      */
-    public $phones = [];
+    private $phones = [];
 
     /**
      * function to build phones table data as (country,state,code,phone)

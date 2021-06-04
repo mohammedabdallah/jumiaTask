@@ -20,7 +20,7 @@ class CustomerModelTest extends TestCase{
      */
     public function it_can_get_customers_from_db()
     {
-        $customers = (new Customer($this->pdoConnection))->getCustomers();
+        $customers = (new Customer)->getCustomers();
 
         $this->assertIsArray($customers);
     }

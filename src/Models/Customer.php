@@ -2,18 +2,9 @@
 
 namespace Jumia\Task\Models;
 
-use PDO;
-
-class Customer
+class Customer extends BaseModel
 {
-    private $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
-    
-    private $tableName = 'customer';
+    protected $tableName = 'customer';
 
 
     public function getCustomers()

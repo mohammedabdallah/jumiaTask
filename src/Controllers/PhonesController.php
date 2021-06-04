@@ -3,22 +3,19 @@
 namespace Jumia\Task\Controllers;
 
 use Jumia\Task\ConstantsHelper;
-use Jumia\Task\Database\Connection;
 use Jumia\Task\Models\Customer;
 use Jumia\Task\Services\PhoneService;
 
 class PhonesController
 {
-
-    private $phonesService, $customerModel, $connection;
+    private $phonesService;
+    private $customerModel;
 
     public function __construct()
     {
         $this->phonesService = new PhoneService();
 
-        $this->connection = new Connection();
-
-        $this->customerModel = new Customer($this->connection->connect());
+        $this->customerModel = new Customer;
     }
 
     public function listPhones()
@@ -27,6 +24,6 @@ class PhonesController
 
         $countries = ConstantsHelper::$countries;
 
-        require ('../views/list-phones.php');
+        require('../views/list-phones.php');
     }
 }
