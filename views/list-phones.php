@@ -22,7 +22,17 @@ tr:nth-child(even) {
 <body>
 
 <h2>Phone numbers</h2>
+<select>
+ <option>Select country</option>
+  <?php foreach($countries as $country){ ?>
+    <option value="<?= $country ?>" <?php (isset($_GET['country']) && $_GET['country'] == $country) ? 'selected':''?>><?= $country?></option>
+  <?php } ?>
+</select>
 
+<select>
+ <option>Select state</option>
+ 
+</select>
 <table>
 <tr>
     <th>Country</th>
@@ -33,7 +43,7 @@ tr:nth-child(even) {
 <?php foreach($phones as $phone) { ?>
   <tr>
     <td><?= $phone['country'] ?></td>
-    <td><?= $phone['state'] ?></td>
+    <td><?= $phone['state']  ?></td>
     <td><?= $phone['code'] ?></td>
     <td><?= $phone['phone'] ?></td>
   </tr>

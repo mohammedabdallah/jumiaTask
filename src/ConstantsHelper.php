@@ -10,7 +10,7 @@ class ConstantsHelper
     const ETHIOPIA_CODE   = 251;
 
     public static $countries = [
-        self::CAMEROON_CODE => 'MOZAMBIQUE',
+        self::CAMEROON_CODE => 'CAMEROON',
         self::MOROCCO_CODE => 'MOROCCO',
         self::MOZAMBIQUE_CODE => 'MOZAMBIQUE',
         self::UGANDA_CODE => 'UGANDA',

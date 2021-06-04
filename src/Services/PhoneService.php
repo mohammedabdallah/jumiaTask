@@ -44,7 +44,7 @@ class PhoneService {
      * @param string $phone
      * @return integer
      */
-    private function getCodeFromPhone(string $phone): int
+    public function getCodeFromPhone(string $phone): int
     {
         preg_match('#\((.*?)\)#', $phone, $result);
 
@@ -57,16 +57,16 @@ class PhoneService {
      * @param integer $code
      * @return string|null
      */
-    private function getCountryFromCode(int $code): ?string
+    public function getCountryFromCode(int $code): ?string
     {
         if(array_key_exists($code, ConstantsHelper::$countries)){
             return ConstantsHelper::$countries[$code];
         }
-
-        return false;
+        
+        return null;
     }
 
-    private function isValidPhone(string $phone, int $code): string
+    public function isValidPhone(string $phone, int $code): string
     {
         if(preg_match(ConstantsHelper::$countriesRegex[$code],$phone))
         {

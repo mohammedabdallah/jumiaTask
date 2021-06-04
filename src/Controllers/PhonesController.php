@@ -2,6 +2,7 @@
 
 namespace Jumia\Task\Controllers;
 
+use Jumia\Task\ConstantsHelper;
 use Jumia\Task\Database\Connection;
 use Jumia\Task\Models\Customer;
 use Jumia\Task\Services\PhoneService;
@@ -23,6 +24,8 @@ class PhonesController
     public function listPhones()
     {
         $phones = $this->phonesService->filterPhones($_GET, $this->customerModel->getCustomers());
+
+        $countries = ConstantsHelper::$countries;
 
         require ('../views/list-phones.php');
     }
