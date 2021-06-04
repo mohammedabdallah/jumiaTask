@@ -12,11 +12,12 @@ class Customer
     {
         $this->pdo = $pdo;
     }
+    
     private $tableName = 'customer';
 
 
     public function getCustomers()
     {
-        return $this->pdo->query('select phone from '.$this->tableName)->fetch();
+        return $this->pdo->query('select phone from '.$this->tableName)->fetchAll();
     }
 }
